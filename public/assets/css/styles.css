@@ -1,0 +1,25 @@
+.menu {
+    background-color: #85C1E9;
+    overflow: hidden;
+}
+
+.menu button {
+    float: left;
+    display: block;
+    color: #A9CCE3;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background-color:whitesmoke;
+    color: black;
+}
+
+.contenido {
+    margin: 20px;
+}

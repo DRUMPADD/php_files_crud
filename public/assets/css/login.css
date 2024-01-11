@@ -1,0 +1,171 @@
+body {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    place-items: center;
+    min-height: 100vh;
+    background: #5fb677;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    bottom: 10vh;
+    border-radius: 50%;
+    background: #5fb677;
+    z-index: 1;
+}
+body::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    height: 20vh;
+    background: #7fb58f;
+    z-index: -1;
+}
+input {
+    border: none;
+    outline: none;
+}
+
+h1 {
+    width: 500px;
+    font-weight: 900;
+    font-size: 5rem;
+    text-align: center;
+    z-index: 2;
+}
+
+
+.form-box {
+    position: relative;
+    display: flex;
+    z-index: 2;
+    overflow: hidden;
+}
+
+form {
+    position: absolute;
+    opacity: 0;
+    border-radius: 12px;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    background: #004e18;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: .3s linear;
+    overflow: hidden;
+}
+
+form > h3 {
+    margin: 0 auto;
+    width: 70%;
+    font-weight: 800;
+    font-size: 2em;
+    text-align: center;
+    border-radius: 15px;
+    background: #fff;
+}
+
+
+/* FORM LOGIN */
+form .form-content {
+    width: 100%;
+    margin: 0 auto;
+    margin: 5px auto;
+}
+
+form .form-content > label {
+    display: block;
+    width: 100%;
+    margin: 7px auto;
+    font-weight: 900;
+    font-size: 1.4em;
+    color: #fff;
+}
+
+form > input[type="submit"] {
+    margin: 0 auto;
+    font-weight: 800;
+    font-size: 1.5em;
+    border-radius: 15px;
+    width: 50%;
+    cursor: pointer;
+}
+
+form .form-content .form-input {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background: #fff;
+}
+
+form .form-content .form-input input {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 90%;
+    padding: 10px;
+    font-size: 1.3rem;
+}
+form .form-content .form-input p {
+    width: 10%;
+    text-align: center;
+    font-size: 1.3rem;
+    overflow: hidden;
+}
+form .form-content .form-input p.hide {
+    position: relative;
+}
+
+form .form-content .form-input p.hide::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 25px;
+    transform: rotate(45deg);
+    left: 17px;
+    top: 1px;
+    background: #000;
+}
+/* FORM LOGIN */
+
+form.active {
+    position: relative;
+    width: 400px;
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.change-option {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    top: 2px;
+    left: 3px;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.change-option i {
+    font-weight: 900;
+    transition: .3s linear;
+}
+
+
+.fa-right-to-bracket.rotate {
+    transform: rotate(-180deg);
+}
