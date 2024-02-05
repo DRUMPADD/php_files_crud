@@ -13,6 +13,21 @@ class FilesController extends Controller
 {
     //
 
+    /* $ext =File::extension($file);
+              
+    if($ext=='pdf'){
+        $content_types='application/pdf';
+    }else if ($ext=='doc') {
+            $content_types='application/msword';  
+    }else if ($ext=='docx') {
+        $content_types='application/vnd.openxmlformats-officedocument.wordprocessingml.document';  
+    }else if ($ext=='xls') {
+        $content_types='application/vnd.ms-excel';  
+    }else if ($ext=='xlsx') {
+        $content_types='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';  
+    }else if ($ext=='txt') {
+        $content_types='application/octet-stream';  
+    }*/
     public function show() {
         $files = FilesModel::all();
         return view('Index')->with(['files'=> $files]);
@@ -52,5 +67,13 @@ class FilesController extends Controller
         } else {
             echo "Failed to upload file";
         }
+    }
+
+    public function update(int $id_file, FilesRequest $request) {
+        $validate = $request->file();
+        $fileModel = new FilesModel;
+        $fileModel->update(['archivo' => $validate->getSize(), 'nombre' => $validate->getClientOriginalName()], ['id_file' => $id_file]);
+
+        return redirect('/archivos');
     }
 }
