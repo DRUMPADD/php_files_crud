@@ -2,7 +2,6 @@
 function ocultarTodos() {
     document.getElementById("visualizarDiv").style.display = "none";
     document.getElementById("agregarDiv").style.display = "none";
-    document.getElementById("borrarDiv").style.display = "none";
 }
 
 // Función para visualizar contenido
@@ -20,19 +19,7 @@ function agregar() {
 // Función para borrar contenido
 function borrar() {
     ocultarTodos();
-    document.getElementById("borrarDiv").style.display = "block";
-    document.getElementById("borrarDiv").remove();
-
-    // Simulación de elementos para borrar (puedes obtener estos elementos de tu base de datos)
     var elementos = ["Elemento 1", "Elemento 2", "Elemento 3"];
-
-    // Llenar el dropdown con los elementos
-    var select = document.getElementById("elementosParaBorrar");
-    for (var i = 0; i < elementos.length; i++) {
-        var option = document.createElement("option");
-        option.text = elementos[i];
-        select.appendChild(option);
-    }
 }
 
 // Función para agregar un nuevo elemento
