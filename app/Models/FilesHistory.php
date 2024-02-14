@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FilesModel extends Model
+class FilesHistory extends Model
 {
     use HasFactory;
-    protected $table = 'files';
-    protected $fillable = ['name', 'extension', 'duenio'];
+    protected $fillable = ['file_id', 'user_id', 'description'];
     public $timestamps = false;
 }

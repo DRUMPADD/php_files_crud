@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\DepartmentModel;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -11,7 +11,7 @@ class DepartmentsController extends Controller
 {
     //
     public function show() {
-        return DepartmentModel::all();
+        return Department::all();
     }
     public function create() {
         try {
@@ -24,7 +24,7 @@ class DepartmentsController extends Controller
 
         $data = request()->all();
 
-        $department = new DepartmentModel();
+        $department = new Department();
 
         $department->nombre = $data["nombre"];
         $department->descripcion = $data["descripcion"];
@@ -32,7 +32,7 @@ class DepartmentsController extends Controller
 
         session()->flash('success', 'Departamento creado con éxito');
     }
-    public function update(DepartmentModel $department) {
+    public function update(Department $department) {
         try {
             $this->validate(request(), [
                 'nombre' => ['required'],
@@ -51,7 +51,7 @@ class DepartmentsController extends Controller
 
         return redirect()->to('/archivos');
     }
-    public function delete(DepartmentModel $department) {
+    public function delete(Department $department) {
         return $department->delete();
     }
 }
