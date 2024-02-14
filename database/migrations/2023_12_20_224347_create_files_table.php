@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('files', function (Blueprint $table) {
-            $table->id('id_file');
-            $table->string('nombre', 200);
-            $table->timestamp('fecha_subida')->useCurrent();
-            $table->binary('archivo');
+            $table->id()->autoIncrement();
+            $table->string('name', 200);
+            $table->string('extension');
+            $table->integer('duenio')->unsigned();
+            $table->foreign('duenio')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->dateTime('fecha_creacion')->useCurrent();
         });
     }
 
