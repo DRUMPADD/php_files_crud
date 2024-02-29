@@ -86,6 +86,9 @@ class FilesController extends Controller
         return view('home.files');
     }
 
+    /**
+     * Guardar archivo
+     */
     public function store(Request $request) {
         $data = new FilesModel();
         $file = $request->file;
